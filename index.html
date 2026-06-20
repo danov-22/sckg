@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Center — Janur Asri</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ivory: '#FAF7F2',
+        sand: '#E8DFD3',
+        wheat: '#D4C5B2',
+        earth: '#8C7B6B',
+        bark: '#5A4D42',
+        olive: '#5C6B4F',
+        forest: '#2D4A3E',
+        terracotta: '#C4644A',
+        clay: '#A85C3F',
+        cream: '#F5F0E8',
+      },
+      fontFamily: {
+        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+        sans: ['Poppins', 'sans-serif'],
+      }
+    }
+  }
+}
+</script>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="font-sans bg-ivory text-bark antialiased">
+
+<div class="fixed inset-0 pointer-events-none opacity-[0.025] z-[9999] bg-[url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.85%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22400%22 height=%22400%22 filter=%22url(%23n)%22 opacity=%221%22/%3E%3C/svg%3E')]"></div>
+
+
+<!-- Toast Notification -->
+<div id="toast" class="toast fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] bg-forest text-ivory px-6 py-3 rounded-full text-sm font-sans tracking-wide pointer-events-none">
+  Added to your wishlist ♡
+</div>
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 transition-all duration-500">
+  <div class="flex items-center gap-1 bg-ivory/80 backdrop-blur-xl border border-wheat/60 rounded-full px-2 py-1.5 shadow-[0_8px_40px_-12px_rgba(92,107,79,0.1)]">
+    <!-- Logo -->
+    <a href="#hero" class="flex items-center gap-2 px-4 py-2">
+      <span class="font-serif text-xl font-semibold text-forest tracking-wider">Study Center</span>
+    </a>
+    <!-- Desktop Links -->
+    <div class="hidden md:flex items-center gap-0.5">
+      <a href="#tigapilar" class="nav-link relative text-xs font-medium text-bark/70 hover:text-forest px-4 py-2 tracking-wide transition-colors">Tiga Pilar</a>
+      <a href="#kelas" class="nav-link relative text-xs font-medium text-bark/70 hover:text-forest px-4 py-2 tracking-wide transition-colors">Kelas</a>
+      <a href="#tujuan" class="nav-link relative text-xs font-medium text-bark/70 hover:text-forest px-4 py-2 tracking-wide transition-colors">Tujuan</a>
+      <a href="#testimoni" class="nav-link relative text-xs font-medium text-bark/70 hover:text-forest px-4 py-2 tracking-wide transition-colors">Testimoni</a>
+    </div>
+    <!-- CTA -->
+    <a href="https://jaklingua.kantindigital.com/login.php" class="hidden md:flex items-center gap-2 bg-forest text-ivory text-xs font-medium px-5 py-2.5 rounded-full hover:bg-olive transition-all duration-300 tracking-wide">
+      Login
+      <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+    </a>
+    <!-- Mobile Menu Button -->
+    <button id="menuBtn" class="md:hidden flex items-center justify-center w-10 h-10 rounded-full hover:bg-sand/50 transition-colors">
+      <span class="iconify text-bark" data-icon="lucide:menu" data-width="20"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mobileMenu" class="fixed inset-0 z-40 bg-ivory/98 backdrop-blur-xl flex flex-col items-center justify-center gap-8 opacity-0 pointer-events-none transition-opacity duration-500">
+  <button id="menuClose" class="absolute top-8 right-8 w-12 h-12 flex items-center justify-center rounded-full border border-wheat/60 hover:bg-sand/30 transition-colors">
+    <span class="iconify text-bark" data-icon="lucide:x" data-width="22"></span>
+  </button> 
+  <a href="#tigapilar" class="mobile-link font-serif text-4xl text-bark hover:text-forest transition-colors">Tiga Pilar</a>
+  <a href="#tujuan" class="mobile-link font-serif text-4xl text-bark hover:text-forest transition-colors">Tujuan</a>
+  <a href="#kelas" class="mobile-link font-serif text-4xl text-bark hover:text-forest transition-colors">Kelas</a>
+  <a href="#testimoni" class="mobile-link font-serif text-4xl text-bark hover:text-forest transition-colors">Testimoni</a>
+  <a href="#kelasstudycenter" class="mt-4 bg-forest text-ivory text-sm font-medium px-8 py-3.5 rounded-full hover:bg-olive transition-all tracking-wide">KELAS STUDY CENTER</a>
+</div>
+
+<!-- ====== HERO SECTION ====== -->
+<section id="hero" class="relative min-h-screen flex items-center overflow-hidden">
+  <!-- Background Image -->
+  <div class="absolute inset-0">
+    <img src="images/sckg-bg.JPG" alt="SCKG Background" class="hero-image w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-r from-ivory via-ivory/80 to-ivory/20"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-ivory via-transparent to-ivory/30"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20 pt-32 pb-20 md:pt-40 md:pb-28">
+    <!-- Tag -->
+    <div class="manifesto-line mb-8">
+      <span class="inline-flex items-center gap-2 text-[10px] font-sans font-medium uppercase tracking-[0.25em] text-olive border border-olive/30 rounded-full px-4 py-2 bg-ivory/50 backdrop-blur-sm">
+        <span class="w-1.5 h-1.5 bg-olive rounded-full"></span>
+        1 Tes 5:23
+      </span>
+    </div>
+
+    <!-- Manifesto -->
+    <h1 class="max-w-3xl">
+      <span class="manifesto-line block font-serif text-4xl md:text-6xl lg:text-7xl font-light text-bark leading-[1.1] tracking-tight">
+        Semoga Tuhan
+      </span>
+      <span class="manifesto-line block font-serif text-4xl md:text-6xl lg:text-7xl font-light text-bark leading-[1.1] tracking-tight mt-1">
+        Menguduskan Kita sampai
+      </span>
+      <span class="manifesto-line block font-serif text-4xl md:text-6xl lg:text-7xl font-light leading-[1.1] tracking-tight mt-1">
+        <span class="text-forest italic">Kedatangannya.</span>
+      </span>
+    </h1>
+
+    <!-- Subtext -->
+    <div class="manifesto-line mt-10 max-w-lg">
+      <p class="text-base md:text-lg text-earth font-light leading-relaxed">
+        Allah damai sejahtera menguduskan kamu seluruhnya dan semoga roh, jiwa dan tubuhmu terpelihara sempurna dengan tak bercacat pada kedatangan Yesus Kristus, Tuhan kita.
+      </p>
+    </div>
+
+    <!-- CTA Buttons -->
+    <div class="manifesto-line mt-10 flex flex-wrap items-center gap-4">
+      <a href="#kelas" class="group flex items-center gap-3 bg-forest text-ivory text-sm font-medium px-8 py-4 rounded-full hover:bg-olive hover:-translate-y-0.5 transition-all duration-300 shadow-[0_10px_25px_-5px_rgba(45,74,62,0.3)]">
+        Kelas-kelas yang tersedia
+        <span class="iconify group-hover:translate-x-1 transition-transform" data-icon="lucide:arrow-right" data-width="16"></span>
+      </a>
+      <a href="#tujuan" class="group flex items-center gap-3 text-sm font-medium text-bark border border-wheat px-8 py-4 rounded-full hover:border-olive hover:text-forest hover:-translate-y-0.5 transition-all duration-300">
+        Visi & Misi
+        <span class="iconify group-hover:translate-x-1 transition-transform" data-icon="lucide:chevron-down" data-width="16"></span>
+      </a>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="manifesto-line mt-20 hidden md:flex items-center gap-3 text-earth/50">
+      <div class="scroll-indicator">
+        <span class="iconify" data-icon="lucide:mouse" data-width="18"></span>
+      </div>
+      <span class="text-[10px] uppercase tracking-[0.2em] font-medium">Scroll untuk lihat lebih lanjut</span>
+    </div>
+  </div>
+</section>
+
+<!-- ====== TIGA PILAR SECTION ====== -->
+<section id="tigapilar" class="py-24 md:py-32 lg:py-40">
+  <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+
+    <!-- Section Header -->
+    <div class="reveal text-center mb-20 md:mb-28">
+      <span class="inline-block text-[10px] font-medium uppercase tracking-[0.3em] text-olive mb-6"></span>
+      <h2 class="font-serif text-3xl md:text-5xl lg:text-6xl font-light text-bark leading-[1.15] tracking-tight max-w-3xl mx-auto">
+        Tiga Pilar <br><span class="italic text-forest"> Study Center</span>
+      </h2>
+    </div>
+
+    <!-- Three Pillars -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+
+      <!-- Pillar 1 -->
+      <div class="reveal reveal-delay-1 group text-center md:text-left">
+        <div class="w-16 h-16 rounded-2xl bg-sand/40 border border-wheat/50 flex items-center justify-center mb-8 mx-auto md:mx-0 group-hover:bg-olive/10 group-hover:border-olive/20 transition-all duration-500">
+          <span class="iconify text-olive" data-icon="lucide:heart-handshake" data-width="28"></span>
+        </div>
+        <h3 class="font-serif text-2xl font-medium text-bark mb-4">Allah</h3>
+        <p class="text-earth font-light leading-[1.8] text-[15px]">
+        Pengkhotbah 12:1 
+        <br>"Ingatlah akan Penciptamu pada masa mudamu, sebelum tiba hari-hari yang malang dan mendekat tahun-tahun yang kaukatakan: ”Tak ada kesenangan bagiku di dalamnya!”"
+        </p>
+        <div class="mt-6 flex items-center gap-2 text-olive text-xs font-medium tracking-wide group-hover:gap-3 transition-all">
+          <span>Lihat lagi</span>
+          <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+        </div>
+      </div>
+
+      <!-- Pillar 2 -->
+      <div class="reveal reveal-delay-2 group text-center md:text-left">
+        <div class="w-16 h-16 rounded-2xl bg-sand/40 border border-wheat/50 flex items-center justify-center mb-8 mx-auto md:mx-0 group-hover:bg-olive/10 group-hover:border-olive/20 transition-all duration-500">
+          <span class="iconify text-olive" data-icon="lucide:graduation-cap" data-width="28"></span>
+        </div>
+        <h3 class="font-serif text-2xl font-medium text-bark mb-4">Pendidikan</h3>
+        <p class="text-earth font-light leading-[1.8] text-[15px]">
+        Amsal 2:6 
+        <br>"Sebab Tuhan memberikan hikmat; dari mulut-Nya datang pengetahuan dan pengertian."
+        </p>
+        <div class="mt-6 flex items-center gap-2 text-olive text-xs font-medium tracking-wide group-hover:gap-3 transition-all">
+          <span>Lihat lagi</span>
+          <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+        </div>
+      </div>
+
+      <!-- Pillar 3 -->
+      <div class="reveal reveal-delay-3 group text-center md:text-left">
+        <div class="w-16 h-16 rounded-2xl bg-sand/40 border border-wheat/50 flex items-center justify-center mb-8 mx-auto md:mx-0 group-hover:bg-olive/10 group-hover:border-olive/20 transition-all duration-500">
+          <span class="iconify text-olive" data-icon="lucide:user-check" data-width="28"></span>
+        </div>
+        <h3 class="font-serif text-2xl font-medium text-bark mb-4">Karakter</h3>
+        <p class="text-earth font-light leading-[1.8] text-[15px]">
+        1 Tim 4:12 
+        <br>"Jangan seorang pun menganggap engkau rendah karena engkau muda. Jadilah teladan bagi orang-orang percaya, dalam perkataanmu, dalam tingkah lakumu, dalam kasihmu, dalam kesetiaanmu dan dalam kesucianmu"
+        </p>
+        <div class="mt-6 flex items-center gap-2 text-olive text-xs font-medium tracking-wide group-hover:gap-3 transition-all">
+          <span>Lihat lagi</span>
+          <span class="iconify" data-icon="lucide:arrow-right" data-width="14"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editorial Image Break -->
+    <div class="reveal mt-20 md:mt-28 relative">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div class="aspect-[4/5] rounded-2xl overflow-hidden">
+          <img src="https://picsum.photos/seed/terren-linen-detail/800/1000.jpg" alt="Linen texture detail" class="w-full h-full object-cover hover:scale-105 transition-transform duration-[1.5s]" />
+        </div>
+        <div class="aspect-[4/5] rounded-2xl overflow-hidden">
+          <img src="https://picsum.photos/seed/terren-nature-cotton/800/1000.jpg" alt="Organic cotton in nature" class="w-full h-full object-cover hover:scale-105 transition-transform duration-[1.5s]" />
+        </div>
+      </div>
+      <!-- Overlay Quote -->
+      <div class="mt-12 md:mt-16 max-w-2xl mx-auto text-center">
+        <blockquote class="font-serif text-2xl md:text-3xl lg:text-4xl font-light text-bark/80 italic leading-snug">
+          "Nothing created by nature should be wasted by design."
+        </blockquote>
+        <p class="mt-6 text-[11px] uppercase tracking-[0.3em] text-earth/60 font-medium">— Eloise Renne, Founder</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== TUJUAN ====== -->
+<section id="tujuan" class="py-24 md:py-32 lg:py-40">
+  <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+
+    <!-- Section Header -->
+    <div class="reveal mb-20 md:mb-28">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div>
+          <span class="inline-block text-[15px] font-medium uppercase tracking-[0.3em] text-olive mb-6">TUJUAN</span>
+          <p class="text-earth font-light text-base md:text-lg leading-[1.85]">
+            Membantu, membina, dan mendidik, generasi muda dalam aspek pendidikan, karakter, dan ketaatan kepada Tuhan. Sehingga masa muda mereka diisi dengan hal-hal positif dan mereka memiliki kesempatan yang sama dengan orang lain untuk meraih kesuksesan dan menjadi berkat bagi banyak orang.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="font-serif text-3xl md:text-5xl lg:text-6xl font-light text-bark leading-[1.15] tracking-tight">
+            Visi <br><span class="italic text-forest">dan</span><br>Misi Study Center.
+          </h2>
+        
+          <p class="text-forest font-medium text-lg mt-4">
+            Visi
+          </p>
+          <p class="text-earth font-light text-base md:text-lg leading-[1.85]">
+            Menjadi pusat pembelajaran yang menginspirasi generasi muda untuk berkembang secara holistik.
+          </p>
+
+          <p class="text-forest font-medium text-lg mt-4">
+            Misi
+          </p>
+          <p class="text-earth font-light text-base md:text-lg leading-[1.85]">
+            Membantu, membina, dan mendidik, generasi muda dalam aspek pendidikan, karakter, dan ketaatan kepada Tuhan.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Programs -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+    <p class="text-[10px] font-medium uppercase tracking-[0.3em] text-olive mb-10">
+      Program & Acara</p> 
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"></div>      
+
+      <!-- Bimbingan Belajar -->
+      <div class="material-card group cursor-pointer rounded-2xl overflow-hidden relative aspect-square">
+        <img src="https://picsum.photos/seed/terren-linen-texture/600/600.jpg"
+            alt="Bimbingan Belajar"
+            class="material-img w-full h-full object-cover transition-transform duration-700" />
+
+        <div class="absolute inset-0 bg-gradient-to-t from-bark/70 via-bark/20 to-transparent"></div>
+
+        <div class="absolute bottom-0 left-0 right-0 p-5">
+          <p class="material-label text-ivory text-xs font-medium uppercase tracking-[0.15em] transition-all duration-500">
+            Bimbingan Belajar Gratis
+          </p>
+          <p class="text-ivory/70 text-[11px] mt-1 font-light">
+            Menyesuaikan keperluan siswa
+          </p>
+        </div>
+      </div>
+
+      <!-- Bimbingan Rohani -->
+      <div class="material-card group cursor-pointer rounded-2xl overflow-hidden relative aspect-square">
+      <video controls width="500">
+        <source src="images/pembinaan.mp4" type="video/mp4">
+      </video>
+
+        <div class="absolute inset-0 bg-gradient-to-t from-bark/70 via-bark/20 to-transparent"></div>
+
+        <div class="absolute bottom-0 left-0 right-0 p-5">
+          <p class="material-label text-ivory text-xs font-medium uppercase tracking-[0.15em] transition-all duration-500">
+            Bimbingan Rohani
+          </p>
+          <p class="text-ivory/70 text-[11px] mt-1 font-light">
+            Mempraktekkan nilai-nilai keimanan
+          </p>
+        </div>
+      </div>
+
+      <!-- Seminar -->
+      <div class="material-card group cursor-pointer rounded-2xl overflow-hidden relative aspect-square">
+        <video
+          class="material-img w-full h-full object-cover transition-transform duration-700"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto">
+          <source src="images/seminar_gigi.mp4" type="video/mp4">
+        </video>
+
+        <div class="absolute inset-0 bg-gradient-to-t from-bark/70 via-bark/20 to-transparent"></div>
+
+        <div class="absolute bottom-0 left-0 right-0 p-5">
+          <p class="material-label text-ivory text-xs font-medium uppercase tracking-[0.15em] transition-all duration-500">
+            Berbagai Macam Seminar
+          </p>
+          <p class="text-ivory/70 text-[11px] mt-1 font-light">
+            Topik yang Beragam
+          </p>
+        </div>
+      </div>
+
+      <!-- Holiday Class -->
+      <div class="material-card group cursor-pointer rounded-2xl overflow-hidden relative aspect-square">
+        <img src="images/kelas_seni.JPG"
+            alt="Holiday Class"
+            class="material-img w-full h-full object-cover transition-transform duration-700" />
+
+        <div class="absolute inset-0 bg-gradient-to-t from-bark/70 via-bark/20 to-transparent"></div>
+
+        <div class="absolute bottom-0 left-0 right-0 p-5">
+          <p class="material-label text-ivory text-xs font-medium uppercase tracking-[0.15em] transition-all duration-500">
+            Holiday Class
+          </p>
+          <p class="text-ivory/70 text-[11px] mt-1 font-light">
+            Kelas Libur yang Beragam
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ====== KELAS STUDY CENTER ====== -->
+<section id="kelas" class="py-24 md:py-32 lg:py-40 bg-cream">
+  <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+
+    <!-- Section Header -->
+    <div class="reveal text-center mb-12">
+      <span class="inline-block text-[10px] font-medium uppercase tracking-[0.3em] text-olive mb-6"></span>
+      <h2 class="font-serif text-3xl md:text-5xl lg:text-6xl font-light text-bark leading-[1.15] tracking-tight">
+        Kelas <span class="italic text-forest">Study Center</span>
+      </h2>
+      <p class="mt-6 text-earth font-light text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+        Komunitas Belajar dan Rumah Kedua Remaja 
+        <br>Sehat, Positif dan Berprestasi
+      </p>
+    </div>
+
+    <!-- Scenario Tabs -->
+    <div class="reveal flex justify-center gap-8 md:gap-12 mb-14 border-b border-wheat/50 pb-0">
+      <button class="scenario-tab active text-xs md:text-sm font-medium uppercase tracking-[0.15em] text-bark/40 border-b-2 border-transparent pb-4 transition-all duration-300 hover:text-bark" data-tab="home">
+        <span class="iconify inline mr-1.5" data-icon="lucide:home" data-width="14"></span>Ekskul
+      </button>
+      <button class="scenario-tab text-xs md:text-sm font-medium uppercase tracking-[0.15em] text-bark/40 border-b-2 border-transparent pb-4 transition-all duration-300 hover:text-bark" data-tab="commute">
+        <span class="iconify inline mr-1.5" data-icon="lucide:briefcase" data-width="14"></span>Kelas Wajib
+      </button>
+      <button class="scenario-tab text-xs md:text-sm font-medium uppercase tracking-[0.15em] text-bark/40 border-b-2 border-transparent pb-4 transition-all duration-300 hover:text-bark" data-tab="outdoor">
+        <span class="iconify inline mr-1.5" data-icon="lucide:mountain" data-width="14"></span>Pembinaan
+      </button>
+    </div>
+
+    <!-- Grid Kelas -->
+    <!-- Ekskul -->
+    <div id="tab-home" class="tab-content grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+      <div class="product-card group cursor-pointer">
+        <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-sand/30 mb-4">
+          <img src="images/english_intermediate.JPG" alt="English Intermediate" class="product-img w-full h-full object-cover transition-transform duration-700" />
+        </div>
+        <p class="text-[10px] uppercase tracking-[0.2em] text-olive font-medium mb-1">Bahasa Asing</p>
+        <p class="text-sm text-earth mt-1 font-light">Inggris</p>
+        <button onclick="showToast()" class="mt-3 text-[10px] uppercase tracking-[0.15em] text-olive font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1">
+          <span class="iconify" data-icon="lucide:heart" data-width="12"></span>
+        </button>
+      </div>
+      <div class="product-card group cursor-pointer">
+        <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-sand/30 mb-4">
+          <img src="images/kelas-gitar.JPG" alt="Kelas Gitar" class="product-img w-full h-full object-cover transition-transform duration-700" />
+        </div>
+        <p class="text-[10px] uppercase tracking-[0.2em] text-olive font-medium mb-1">Musik</p>
+        <p class="text-sm text-earth mt-1 font-light">Gitar</p>
+        <button onclick="showToast()" class="mt-3 text-[10px] uppercase tracking-[0.15em] text-olive font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1">
+          <span class="iconify" data-icon="lucide:heart" data-width="12"></span>
+        </button>
+      </div>
+      <div class="product-card group cursor-pointer">
+        <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-sand/30 mb-4">
+          <img src="images/coding.JPG" alt="Wide Trouser" class="product-img w-full h-full object-cover transition-transform duration-700" />
+        </div>
+        <p class="text-[10px] uppercase tracking-[0.2em] text-olive font-medium mb-1">Coding</p>
+        <p class="text-sm text-earth mt-1 font-light">Web Development</p>
+        <button onclick="showToast()" class="mt-3 text-[10px] uppercase tracking-[0.15em] text-olive font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1">
+          <span class="iconify" data-icon="lucide:heart" data-width="12"></span>
+        </button>
+      </div>
+      <div class="product-card group cursor-pointer">
+        <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-sand/30 mb-4">
+          <img src="images/penutupan-SC.mp4" alt="SCJA 2022" class="product-img w-full h-full object-cover transition-transform duration-700" />
+        </div>
+        <p class="text-[10px] uppercase tracking-[0.2em] text-olive font-medium mb-1">Coming Soon</p>
+        <p class="text-sm text-earth mt-1 font-light">Menyesuaikan dengan masing-masing SC</p>
+        <button onclick="showToast()" class="mt-3 text-[10px] uppercase tracking-[0.15em] text-olive font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1">
+          <span class="iconify" data-icon="lucide:heart" data-width="12"></span> Wishlist
+        </button>
+      </div>
+    </div>
+
+    <!-- KELAS WAJIB -->
+    <div id="tab-commute" class="tab-content hidden grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+      <div class="product-card group cursor-pointer">
+        <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-sand/30 mb-4">
+          <img src="https://files.catbox.moe/5kemu8.JPG" alt="Tailored Blazer" class="product-img w-full h-full object-cover transition-transform duration-700" />
+        </div>
+        <p class="text-[10px] uppercase tracking-[0.2em] text-olive font-medium mb-1">SMP 7</p>
+        <p class="text-sm text-earth mt-1 font-light">MTK</p>
+        <button onclick="showToast()" class="mt-3 text-[10px] uppercase tracking-[0.15em] text-olive font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1">
+          <span class="iconify" data-icon="lucide:heart" data-width="12"></span>
+        </button>
+      </div>
+      <div class="product-card group cursor-pointer">
+        <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-sand/30 mb-4">
+          <img src="https://files.catbox.moe/mbxqnv.JPG" alt="Straight Trouser" class="product-img w-full h-full object-cover transition-transform duration-700" />
+        </div>
+        <p class="text-[10px] uppercase tracking-[0.2em] text-olive font-medium mb-1">SMP 8</p>
+        <p class="text-sm text-earth mt-1 font-light">MTK</p>
+        <button onclick="showToast()" class="mt-3 text-[10px] uppercase tracking-[0.15em] text-olive font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1">
+          <span class="iconify" data-icon="lucide:heart" data-width="12"></span>
+        </button>
+      </div>
+      <div class="product-card group cursor-pointer">
+        <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-sand/30 mb-4">
+          <img src="https://files.catbox.moe/wkrhef.JPG" alt="Shirt" class="product-img w-full h-full object-cover transition-transform duration-700" />
+        </div>
+        <p class="text-[10px] uppercase tracking-[0.2em] text-olive font-medium mb-1">SMP 9</p>
+        <p class="text-sm text-earth mt-1 font-light">MTK</p>
+        <button onclick="showToast()" class="mt-3 text-[10px] uppercase tracking-[0.15em] text-olive font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1">
+          <span class="iconify" data-icon="lucide:heart" data-width="12"></span>
+        </button>
+      </div>
+      <div class="product-card group cursor-pointer">
+        <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-sand/30 mb-4">
+          <img src="https://picsum.photos/seed/terren-commute4/600/800.jpg" alt="Tote Bag" class="product-img w-full h-full object-cover transition-transform duration-700" />
+        </div>
+        <p class="text-[10px] uppercase tracking-[0.2em] text-olive font-medium mb-1">SMK/SMA</p>
+        <p class="text-sm text-earth mt-1 font-light">MTK/FISIKA/KIMIA</p>
+        <button onclick="showToast()" class="mt-3 text-[10px] uppercase tracking-[0.15em] text-olive font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1">
+          <span class="iconify" data-icon="lucide:heart" data-width="12"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- PEMBINAAN -->
+    <div id="tab-outdoor" class="tab-content hidden grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+      <div class="product-card group cursor-pointer">
+        <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-sand/30 mb-4">
+          <img src="https://picsum.photos/seed/terren-outdoor1/600/800.jpg" alt="Field Jacket" class="product-img w-full h-full object-cover transition-transform duration-700" />
+        </div>
+        <p class="text-[10px] uppercase tracking-[0.2em] text-olive font-medium mb-1">Membaca Alkitab</p>
+        <p class="text-sm text-earth mt-1 font-light">Kelompok Baca</p>
+        <button onclick="showToast()" class="mt-3 text-[10px] uppercase tracking-[0.15em] text-olive font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1">
+          <span class="iconify" data-icon="lucide:heart" data-width="12"></span> Wishlist
+        </button>
+      </div>
+      <div class="product-card group cursor-pointer">
+        <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-sand/30 mb-4">
+          <img src="https://picsum.photos/seed/terren-outdoor2/600/800.jpg" alt="Cargo Trouser" class="product-img w-full h-full object-cover transition-transform duration-700" />
+        </div>
+        <p class="text-[10px] uppercase tracking-[0.2em] text-olive font-medium mb-1">Seminar</p>
+        <p class="text-sm text-earth mt-1 font-light">Pembicara Khusus</p>
+        <button onclick="showToast()" class="mt-3 text-[10px] uppercase tracking-[0.15em] text-olive font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1">
+          <span class="iconify" data-icon="lucide:heart" data-width="12"></span> Wishlist
+        </button>
+      </div>
+      <div class="product-card group cursor-pointer">
+        <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-sand/30 mb-4">
+          <img src="https://picsum.photos/seed/terren-outdoor3/600/800.jpg" alt="Merino Layer" class="product-img w-full h-full object-cover transition-transform duration-700" />
+        </div>
+        <p class="text-[10px] uppercase tracking-[0.2em] text-olive font-medium mb-1">Games</p>
+        <p class="text-sm text-earth mt-1 font-light">Aktivitas Bersama</p>
+        <button onclick="showToast()" class="mt-3 text-[10px] uppercase tracking-[0.15em] text-olive font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1">
+          <span class="iconify" data-icon="lucide:heart" data-width="12"></span> Wishlist
+        </button>
+      </div>
+      <div class="product-card group cursor-pointer">
+        <div class="aspect-[3/4] rounded-2xl overflow-hidden bg-sand/30 mb-4">
+          <img src="https://picsum.photos/seed/terren-outdoor4/600/800.jpg" alt="Bucket Hat" class="product-img w-full h-full object-cover transition-transform duration-700" />
+        </div>
+        <p class="text-[10px] uppercase tracking-[0.2em] text-olive font-medium mb-1">Outing</p>
+        <p class="text-sm text-earth mt-1 font-light">Aktivitas Outing Bersama</p>
+        <button onclick="showToast()" class="mt-3 text-[10px] uppercase tracking-[0.15em] text-olive font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1">
+          <span class="iconify" data-icon="lucide:heart" data-width="12"></span> Wishlist
+        </button>
+      </div>
+    </div>
+
+    <!-- View All CTA -->
+    <div class="reveal text-center mt-14">
+      <a href="#" class="group inline-flex items-center gap-3 text-sm font-medium text-forest border-b border-forest/30 pb-1 hover:border-forest transition-all duration-300">
+        View all pieces
+        <span class="iconify group-hover:translate-x-1 transition-transform" data-icon="lucide:arrow-right" data-width="16"></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== EDITORIAL BREAK ====== -->
+<section class="relative h-[60vh] md:h-[80vh] overflow-hidden">
+  <img src="https://picsum.photos/seed/terren-seaside-walk/1920/1080.jpg" alt="Walking by the sea" class="w-full h-full object-cover" />
+  <div class="absolute inset-0 bg-bark/30"></div>
+  <div class="absolute inset-0 flex items-center justify-center text-center px-6">
+    <div>
+      <p class="text-ivory/70 text-[10px] uppercase tracking-[0.3em] font-medium mb-6">Lookbook AW25</p>
+      <h2 class="font-serif text-4xl md:text-6xl lg:text-7xl font-light text-ivory leading-[1.1] tracking-tight italic max-w-3xl">
+        Between the tide <br>& the turning leaf
+      </h2>
+      <a href="#" class="group inline-flex items-center gap-3 mt-10 bg-ivory/15 backdrop-blur-sm text-ivory text-sm font-medium px-8 py-4 rounded-full border border-ivory/25 hover:bg-ivory/25 hover:-translate-y-0.5 transition-all duration-300">
+        View Lookbook
+        <span class="iconify group-hover:translate-x-1 transition-transform" data-icon="lucide:arrow-right" data-width="16"></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== COMMUNITY SECTION ====== -->
+<section id="community" class="py-24 md:py-32 lg:py-40 bg-cream">
+  <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+
+    <!-- Section Header -->
+    <div class="reveal text-center mb-16 md:mb-20">
+      <span class="inline-block text-[10px] font-medium uppercase tracking-[0.3em] text-olive mb-6">Community</span>
+      <h2 class="font-serif text-3xl md:text-5xl lg:text-6xl font-light text-bark leading-[1.15] tracking-tight">
+        Worn by <span class="italic text-forest">real people</span>
+      </h2>
+      <p class="mt-6 text-earth font-light text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+        No models, no studios. Our community shares how TERREN fits into everyday life — in gardens, on bicycles, at kitchen tables.
+      </p>
+    </div>
+
+    <!-- Community Grid (Magazine Layout) -->
+    <div class="reveal grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+
+      <!-- Story 1 -->
+      <div class="group cursor-pointer">
+        <div class="aspect-[3/4] rounded-2xl overflow-hidden mb-5">
+          <img src="https://picsum.photos/seed/terren-community1/600/800.jpg" alt="Community member" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.2s]" />
+        </div>
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-8 h-8 rounded-full bg-sand overflow-hidden">
+            <img src="https://picsum.photos/seed/avatar-maea/100/100.jpg" alt="" class="w-full h-full object-cover" />
+          </div>
+          <div>
+            <p class="text-sm font-medium text-bark">Mae A.</p>
+            <p class="text-[11px] text-earth">Kyoto, Japan</p>
+          </div>
+        </div>
+        <p class="text-earth text-sm font-light leading-relaxed italic">
+          "I wore the Morning Set every day during our mountain retreat. It moved with me — cooking, reading, walking through cedar paths."
+        </p>
+        <p class="text-[10px] uppercase tracking-[0.15em] text-olive font-medium mt-3">#RelaxedMorningSet</p>
+      </div>
+
+      <!-- Story 2 -->
+      <div class="group cursor-pointer">
+        <div class="aspect-[3/4] rounded-2xl overflow-hidden mb-5">
+          <img src="https://picsum.photos/seed/terren-community2/600/800.jpg" alt="Community member" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.2s]" />
+        </div>
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-8 h-8 rounded-full bg-sand overflow-hidden">
+            <img src="https://picsum.photos/seed/avatar-leo/100/100.jpg" alt="" class="w-full h-full object-cover" />
+          </div>
+          <div>
+            <p class="text-sm font-medium text-bark">Leo M.</p>
+            <p class="text-[11px] text-earth">Lisbon, Portugal</p>
+          </div>
+        </div>
+        <p class="text-earth text-sm font-light leading-relaxed italic">
+          "The Field Jacket survived rain, wind, and a week of camping. It only gets better with wear — like good leather or old wood."
+        </p>
+        <p class="text-[10px] uppercase tracking-[0.15em] text-olive font-medium mt-3">#FieldJacket</p>
+      </div>
+
+      <!-- Story 3 -->
+      <div class="group cursor-pointer">
+        <div class="aspect-[3/4] rounded-2xl overflow-hidden mb-5">
+          <img src="https://picsum.photos/seed/terren-community3/600/800.jpg" alt="Community member" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.2s]" />
+        </div>
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-8 h-8 rounded-full bg-sand overflow-hidden">
+            <img src="https://picsum.photos/seed/avatar-suki/100/100.jpg" alt="" class="w-full h-full object-cover" />
+          </div>
+          <div>
+            <p class="text-sm font-medium text-bark">Suki L.</p>
+            <p class="text-[11px] text-earth">Cornwall, UK</p>
+          </div>
+        </div>
+        <p class="text-earth text-sm font-light leading-relaxed italic">
+          "Finally, clothes that respect my values without sacrificing beauty. The linen softens with every wash — it becomes yours."
+        </p>
+        <p class="text-[10px] uppercase tracking-[0.15em] text-olive font-medium mt-3">#SoftWrapCardigan</p>
+      </div>
+    </div>
+
+    <!-- Join CTA -->
+    <div class="reveal text-center mt-16">
+      <p class="text-earth text-sm font-light mb-6">Share your TERREN moments with</p>
+      <a href="#" class="inline-flex items-center gap-2 text-sm font-medium text-forest border-b border-forest/30 pb-1 hover:border-forest transition-all duration-300">
+        <span class="iconify" data-icon="mdi:instagram" data-width="18"></span>
+        @terren.community
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== NEWSLETTER SECTION ====== -->
+<section class="py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+    <div class="reveal bg-forest rounded-3xl p-10 md:p-16 lg:p-20 text-center relative overflow-hidden">
+      <!-- Texture overlay -->
+      <div class="absolute inset-0 opacity-10">
+        <img src="https://picsum.photos/seed/terren-newsletter-bg/1200/600.jpg" alt="" class="w-full h-full object-cover" />
+      </div>
+      <div class="relative z-10">
+        <span class="inline-block text-[10px] font-medium uppercase tracking-[0.3em] text-ivory/50 mb-6">Stay Grounded</span>
+        <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-light text-ivory leading-[1.2] tracking-tight mb-4">
+          Letters from the earth
+        </h2>
+        <p class="text-ivory/60 font-light text-sm md:text-base max-w-md mx-auto mb-10 leading-relaxed">
+          Slow dispatches — new collections, material stories, and the quiet moments that inspire us. No spam, ever.
+        </p>
+        <!-- Newsletter Form -->
+        <form id="newsletterForm" class="flex flex-col sm:flex-row items-center gap-3 max-w-md mx-auto">
+          <input type="email" id="emailInput" required placeholder="your@email.com" class="w-full flex-1 px-5 py-3.5 rounded-full bg-ivory/10 border border-ivory/20 text-ivory placeholder-ivory/40 text-sm focus:outline-none focus:border-ivory/50 focus:bg-ivory/15 transition-all" />
+          <button type="submit" class="w-full sm:w-auto bg-ivory text-forest text-sm font-medium px-7 py-3.5 rounded-full hover:bg-wheat hover:-translate-y-0.5 transition-all duration-300 whitespace-nowrap">
+            Subscribe
+          </button>
+        </form>
+        <p id="formMessage" class="text-ivory/50 text-xs mt-4 hidden">✓ Welcome to the TERREN community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer class="py-16 md:py-20 border-t border-wheat/50">
+  <div class="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-10 md:gap-12">
+
+      <!-- Brand -->
+      <div class="col-span-2 md:col-span-2">
+        <p class="font-serif text-2xl font-semibold text-forest tracking-wider mb-4">STUDY CENTER</p>
+        <p class="text-earth text-sm font-light leading-relaxed max-w-xs">
+          Your second home for a better future.
+        </p>
+        <div class="flex items-center gap-4 mt-6">
+          <a href="#" class="w-9 h-9 rounded-full border border-wheat/50 flex items-center justify-center text-earth hover:text-forest hover:border-olive/50 transition-all duration-300">
+            <span class="iconify" data-icon="mdi:instagram" data-width="16"></span>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-full border border-wheat/50 flex items-center justify-center text-earth hover:text-forest hover:border-olive/50 transition-all duration-300">
+            <span class="iconify" data-icon="mdi:pinterest" data-width="16"></span>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-full border border-wheat/50 flex items-center justify-center text-earth hover:text-forest hover:border-olive/50 transition-all duration-300">
+            <span class="iconify" data-icon="simple-icons:tiktok" data-width="14"></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- About -->
+      <div>
+        <p class="text-[10px] uppercase tracking-[0.2em] text-olive font-medium mb-5">About</p>
+        <ul class="space-y-3">
+          <li><a href="#" class="text-sm text-earth font-light hover:text-forest transition-colors">Our Story</a></li>
+          <li><a href="#" class="text-sm text-earth font-light hover:text-forest transition-colors">Materials</a></li>
+          <li><a href="#" class="text-sm text-earth font-light hover:text-forest transition-colors">Production</a></li>
+          <li><a href="#" class="text-sm text-earth font-light hover:text-forest transition-colors">Journal</a></li>
+          <li><a href="#" class="text-sm text-earth font-light hover:text-forest transition-colors">Careers</a></li>
+        </ul>
+      </div>
+
+      <!-- Help -->
+      <div>
+        <p class="text-[10px] uppercase tracking-[0.2em] text-olive font-medium mb-5">Help</p>
+        <ul class="space-y-3">
+          <li><a href="#" class="text-sm text-earth font-light hover:text-forest transition-colors">Size Guide</a></li>
+          <li><a href="#" class="text-sm text-earth font-light hover:text-forest transition-colors">Shipping</a></li>
+          <li><a href="#" class="text-sm text-earth font-light hover:text-forest transition-colors">Returns</a></li>
+          <li><a href="#" class="text-sm text-earth font-light hover:text-forest transition-colors">Garment Care</a></li>
+          <li><a href="#" class="text-sm text-earth font-light hover:text-forest transition-colors">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="divider mt-14 mb-8"></div>
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-[11px] text-earth/50 font-light">© 2026 STUDY CENTER. Hak cipta dilindungi undang-undang.</p>
+      <div class="flex items-center gap-6">
+        <a href="#" class="text-[11px] text-earth/50 font-light hover:text-olive transition-colors">Privacy</a>
+        <a href="#" class="text-[11px] text-earth/50 font-light hover:text-olive transition-colors">Terms</a>
+        <a href="#" class="text-[11px] text-earth/50 font-light hover:text-olive transition-colors">Accessibility</a>
+      </div>
+      <div class="flex items-center gap-2 text-earth/40">
+        <span class="iconify" data-icon="lucide:globe" data-width="12"></span>
+        <select class="bg-transparent text-[11px] font-light outline-none cursor-pointer text-earth/50">
+          <option>EN</option>
+          <option>FR</option>
+          <option>DE</option>
+          <option>PT</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
