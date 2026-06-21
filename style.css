@@ -12,17 +12,11 @@
 
 /* LOGO PILL */
 .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    padding: 14px 24px;
-    border-radius: 999px;
-
-    width: auto;
-    min-width: fit-content;
-
-    text-decoration: none;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    width: auto !important;
+    min-width: max-content !important;
 }
 
 /* LOGO IMAGE */
@@ -34,13 +28,12 @@
 
 /* LOGO TEXT */
 .logo-text {
-    display: inline-block;
-    white-space: nowrap;
-
-    font-size: 1.75rem;
-    line-height: 1;
-
-    overflow: visible;
+    display: inline-block !important;
+    width: max-content !important;
+    white-space: nowrap !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    flex-shrink: 0 !important;
 }
 
 /* HAMBURGER */
