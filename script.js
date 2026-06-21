@@ -12,17 +12,40 @@ document.querySelectorAll('.reveal, .manifesto-line').forEach(el => observer.obs
 
 // ---- Mobile Menu ----
 const menuBtn = document.getElementById('menuBtn');
-const menuClose = document.getElementById('menuClose');
+const menuIcon = document.getElementById('menuIcon');
 const mobileMenu = document.getElementById('mobileMenu');
 
 menuBtn.addEventListener('click', () => {
-  mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
-  mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+  const isOpening = mobileMenu.classList.contains('opacity-0');
+
+  // Toggle menu
+  mobileMenu.classList.toggle('opacity-0');
+  mobileMenu.classList.toggle('pointer-events-none');
+
+  // Toggle icon
+  menuIcon.setAttribute(
+    'data-icon',
+    isOpening ? 'lucide:x' : 'lucide:menu'
+  );
+
+  // Refresh Iconify
+  if (window.Iconify) {
+    Iconify.scan();
+  }
 });
 
-menuClose.addEventListener('click', () => {
-  mobileMenu.classList.add('opacity-0', 'pointer-events-none');
-  mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+// Close menu when a link is clicked
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.add('opacity-0');
+    mobileMenu.classList.add('pointer-events-none');
+
+    menuIcon.setAttribute('data-icon', 'lucide:menu');
+
+    if (window.Iconify) {
+      Iconify.scan();
+    }
+  });
 });
 
 document.querySelectorAll('.mobile-link').forEach(link => {
